@@ -1,0 +1,236 @@
+:root {
+  --bg: #0f1115;
+  --panel: #161a22;
+  --panel2: #1d2230;
+  --border: #2a3142;
+  --text: #e6e9ef;
+  --muted: #8a92a6;
+  --accent: #6cb6ff;
+  --accent2: #ffd166;
+  --good: #4ade80;
+  --bad: #f87171;
+  --hi: #ffd166;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Sarabun', 'Noto Sans Thai',
+    'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 18px 18px 80px;
+}
+
+.hdr h1 {
+  margin: 0 0 4px;
+  font-size: 24px;
+  letter-spacing: 0.2px;
+}
+.hdr .sub { margin: 0 0 14px; color: var(--muted); font-size: 13px; }
+
+.loading, .error {
+  padding: 24px;
+  text-align: center;
+  color: var(--muted);
+}
+.error { color: var(--bad); }
+
+.filters {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.row1 .search {
+  width: 100%;
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 11px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+}
+.row1 .search:focus { border-color: var(--accent); }
+
+.row2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.row3 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+.range { display: flex; flex-direction: column; gap: 4px; min-width: 280px; flex: 1; }
+.range label { font-size: 12px; color: var(--muted); }
+.range-inputs { display: flex; gap: 8px; }
+.range-inputs input { flex: 1; accent-color: var(--accent); }
+
+.chk { font-size: 13px; color: var(--muted); display: flex; gap: 6px; align-items: center; cursor: pointer; }
+.chk input { accent-color: var(--accent); }
+
+.sort { display: flex; gap: 6px; align-items: center; font-size: 13px; }
+.sort label { color: var(--muted); }
+.sort select, .sort .dir, .reset {
+  background: var(--panel2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 7px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.sort .dir:hover, .reset:hover { border-color: var(--accent); }
+.reset { margin-left: auto; }
+
+.ms { position: relative; }
+.ms-label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+.ms-trigger {
+  width: 100%;
+  text-align: left;
+  background: var(--panel2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 9px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+.ms-trigger:hover { border-color: var(--accent); }
+.ms-placeholder { color: var(--muted); }
+.ms-count { color: var(--accent); }
+.ms-caret { color: var(--muted); }
+.ms-pop {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  z-index: 30;
+  padding: 8px;
+  max-height: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.ms-search {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 7px 9px;
+  border-radius: 6px;
+  outline: none;
+  font-size: 13px;
+}
+.ms-actions { display: flex; gap: 6px; }
+.ms-mini {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 4px 8px;
+  font-size: 11px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.ms-mini:hover { border-color: var(--accent); }
+.ms-list { overflow-y: auto; flex: 1; max-height: 260px; }
+.ms-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 4px;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.ms-item:hover { background: var(--panel); }
+.ms-item input { accent-color: var(--accent); }
+.ms-more { font-size: 11px; color: var(--muted); padding: 4px; text-align: center; }
+
+.table-wrap {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: auto;
+  max-height: 70vh;
+}
+.tbl { width: 100%; border-collapse: collapse; font-size: 13px; }
+.tbl th, .tbl td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+.tbl thead th {
+  position: sticky;
+  top: 0;
+  background: var(--panel2);
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+.tbl tbody tr:hover { background: rgba(108,182,255,0.06); }
+.tbl .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tbl .sortable { cursor: pointer; user-select: none; }
+.tbl .sortable:hover { color: var(--accent); }
+.tbl .hi { color: var(--hi); font-weight: 600; }
+.tbl .uni { font-weight: 600; }
+.tbl .camp { font-size: 11px; color: var(--muted); }
+.tbl .fac { font-weight: 600; }
+.tbl .prog { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.tbl .detail { font-size: 11px; color: var(--muted); margin-top: 2px; font-style: italic; }
+.tbl .empty { text-align: center; color: var(--muted); padding: 40px; }
+
+.pager {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 0;
+}
+.pager button {
+  background: var(--panel2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 7px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.pager button:hover:not(:disabled) { border-color: var(--accent); }
+.pager button:disabled { opacity: 0.4; cursor: not-allowed; }
+.pager span { color: var(--muted); font-size: 13px; min-width: 110px; text-align: center; }
+
+.ftr { color: var(--muted); font-size: 11px; text-align: center; padding: 12px; }
+
+@media (max-width: 800px) {
+  .row2 { grid-template-columns: 1fr; }
+  .row3 { flex-direction: column; align-items: stretch; }
+  .reset { margin-left: 0; }
+  .tbl { font-size: 12px; }
+  .tbl th, .tbl td { padding: 8px; }
+}
