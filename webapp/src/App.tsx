@@ -1109,6 +1109,7 @@ export default function App() {
           <footer className="ftr">
             ที่มา: PDF สถิติ TCAS69 รอบ 3 · เครื่องมือสำหรับดูข้อมูลเท่านั้น
             ตรวจสอบทางการที่เว็บ ทปอ.
+            <div className="ftr-credit">เว็บไซต์โดยทีมผู้สร้าง <a href="https://siamstatement.com" target="_blank" rel="noopener">SiamStatement</a></div>
           </footer>
         </>
       )}
